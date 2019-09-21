@@ -79,6 +79,16 @@ public class WebController {
 				"Step 14 : Reach another plane of existance\r\n" + 
 				"Step 15 : You finally gut gud";
 	}
+
+	/**
+	 * Method that prints a string
+	 * @return String that is seen by the user
+	 */
+	@RequestMapping(value = "/cs480/lance", method = RequestMethod.GET)
+	String lance() {
+		return "I am Lance";
+	}
+
 	/**
 	 * This is a simple example of how to use a data manager
 	 * to retrieve the data and return it as an HTTP response.
