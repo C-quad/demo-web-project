@@ -60,6 +60,25 @@ public class WebController {
 		return "HI";
 	}
 
+	@RequestMapping( value = "/cs480/GitGud", method = RequestMethod.GET)
+	String gitGud(){
+		
+		return  "Step 1 : Start game\r\n" + 
+				"Step 2 : Create character\r\n" + 
+				"Step 3 : Git gud\r\n" + 
+				"Step 4 : Be the best player\r\n" + 
+				"Step 5 : Rate this guide for teaching you how to achieve gudness\r\n" + 
+				"Step 6 : Close the game\r\n" + 
+				"Step 7 : Complain about Dark Souls 2 and 3 for not being as hard as Dark Souls 1 or for not having a good enough lore\r\n" + 
+				"Step 8 : Secretly play those games and enjoy them\r\n" + 
+				"Step 9 : Bash those that publicly display their love for those games\r\n" + 
+				"Step 10 : Start game\r\n" + 
+				"Step 11 : Create character\r\n" + 
+				"Step 12 : Create a Giant Dad\r\n" + 
+				"Step 13 : Kill scrubs in PVP\r\n" + 
+				"Step 14 : Reach another plane of existance\r\n" + 
+				"Step 15 : You finally gut gud";
+	}
 	/**
 	 * This is a simple example of how to use a data manager
 	 * to retrieve the data and return it as an HTTP response.
@@ -70,6 +89,9 @@ public class WebController {
 	 * Try it in your web browser:
 	 * 	http://localhost:8080/cs480/user/user101
 	 */
+	
+	
+	
 	@RequestMapping(value = "/cs480/user/{userId}", method = RequestMethod.GET)
 	User getUser(@PathVariable("userId") String userId) {
 		User user = userManager.getUser(userId);
