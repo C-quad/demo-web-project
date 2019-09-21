@@ -51,6 +51,14 @@ public class WebController {
 		// with the URL: http://localhost:8080/
 		return "OK";
 	}
+	
+	/**
+	 * Return a simple string
+	 */
+	@RequestMapping(value = "/cs480/hi", method = RequestMethod.GET)
+	String hello() {
+		return "HI";
+	}
 
 	/**
 	 * This is a simple example of how to use a data manager
