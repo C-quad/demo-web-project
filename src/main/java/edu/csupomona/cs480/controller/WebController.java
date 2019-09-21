@@ -89,6 +89,17 @@ public class WebController {
 		return "I am Lance";
 	}
 
+        /**
+         * Method that prints a random string
+         */
+        @RequestMapping( value = "cs4800/random", method = RequestMethod.GET)
+        String randomName() {
+            String[] teamNames = new String[]{"Amanda", "Lance", "Connor", "Randy", "Steven"};
+            Random rdm = new Random();
+            int rng = rdm.nextInt(5);
+            return teamNames[rng];
+        }
+
 	/**
 	 * This is a simple example of how to use a data manager
 	 * to retrieve the data and return it as an HTTP response.
