@@ -100,6 +100,15 @@ public class WebController {
             int rng = rdm.nextInt(5);
             return teamNames[rng];
         }
+	
+	/**
+	 * Method that print a simple math equation
+	 */
+	@RequestMapping(value = "/cs480/math", method = RequestMethod.GET)
+	String simpleMath() 
+	{
+		return "1+1=2";
+	}
 
 	/**
 	 * This is a simple example of how to use a data manager
