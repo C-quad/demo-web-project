@@ -1,6 +1,7 @@
 package edu.csupomona.cs480.controller;
 
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
@@ -8,6 +9,10 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+
+import org.apache.commons.math3.stat.descriptive.DescriptiveStatistics;
+import org.apache.commons.math3.stat.inference.TestUtils;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -90,7 +95,7 @@ public class WebController {
 	 * Method that prints a string
 	 * @return String that is seen by the user
 	 */
-	@RequestMapping(value = "/cs480/lance", method = RequestMethod.GET)
+	@RequestMapping(value = "/cs4800/lance", method = RequestMethod.GET)
 	String lance() {
 		return "I am Lance";
 	}
@@ -124,6 +129,25 @@ public class WebController {
 			e.printStackTrace();
 		}
 		return title;
+    }
+    
+    /**
+     *Generates random double array, applies t-test to it
+     * @throws Exception
+     */
+    @RequestMapping(value = "/cs4800/ttest", method = RequestMethod.GET)
+    String testStatisticalTests() throws Exception {
+        double[] x = new double[10];
+        for (int i = 0; i < x.length; i++) {
+            x[i] = Math.random()*100+1;
+        }
+        System.out.println("Testing array: " + Arrays.toString(x));
+        //One-sample t-test
+        double mu = new DescriptiveStatistics(x).getMean();
+        return "Testing array: " + Arrays.toString(x)
+                + "<br>Mean: " + mu 
+                + "<br>t-statistic for true mean: " + TestUtils.t(50, x) 
+                + "<br>p-value for true mean: " + TestUtils.tTest(50, x);
     }
 	
 	/**
