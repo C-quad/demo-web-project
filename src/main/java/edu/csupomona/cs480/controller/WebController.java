@@ -1,8 +1,13 @@
 package edu.csupomona.cs480.controller;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Random;
 
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -100,6 +105,26 @@ public class WebController {
             int rng = rdm.nextInt(5);
             return teamNames[rng];
         }
+        
+    /**
+     * Method that grabs all links from google.com
+     */
+    @RequestMapping(value = "/cs4800/getLinks", method = RequestMethod.GET)
+    String linkGrab( ) {
+    	String title = "";
+    	Document doc;
+		try {
+			doc = Jsoup.connect("https://www.google.com").get();
+			title = doc.title();
+			Elements links = doc.select("a[href]");
+			for(Element link : links) {
+				title = title + "<br><br>Link : " + link.attr("href") + "<br>Text : " + link.text();
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return title;
+    }
 	
 	/**
 	 * Method that print a simple math equation
