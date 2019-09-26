@@ -24,6 +24,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.google.common.collect.Range;
+
 import edu.csupomona.cs480.App;
 import edu.csupomona.cs480.data.User;
 import edu.csupomona.cs480.data.provider.UserManager;
@@ -67,11 +69,29 @@ public class WebController {
 	}
 	
 	/**
+	 * Amanda's method
 	 * Return a simple string
 	 */
 	@RequestMapping(value = "/cs480/hi", method = RequestMethod.GET)
 	String hello() {
 		return "HI";
+	}
+	/**
+	 * Amanda's method
+	 * Returns the different range values
+	 */
+	@RequestMapping(value = "cs480/range", method = RequestMethod.GET)
+	String range(){
+		Range<Integer> range1 = Range.closed(3, 8);
+        System.out.println(range1);
+        
+        Range<Integer> range2 = Range.openClosed(3, 8);
+        System.out.println(range2);
+
+        Range<Integer> range3 = Range.closedOpen(3, 8);
+        System.out.println(range3);
+        
+        return range1.toString()+range2.toString()+range3.toString();
 	}
 
 	
