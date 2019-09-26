@@ -16,6 +16,8 @@ import org.apache.commons.math3.stat.inference.TestUtils;
 
 import org.apache.commons.io.IOCase;
 
+import org.codehaus.plexus.util;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,6 +25,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
+
+import com.google.common.collect.Range;
 
 import edu.csupomona.cs480.App;
 import edu.csupomona.cs480.data.User;
@@ -67,11 +71,29 @@ public class WebController {
 	}
 	
 	/**
+	 * Amanda's method
 	 * Return a simple string
 	 */
 	@RequestMapping(value = "/cs480/hi", method = RequestMethod.GET)
 	String hello() {
 		return "HI";
+	}
+	/**
+	 * Amanda's method
+	 * Returns the different range values
+	 */
+	@RequestMapping(value = "cs480/range", method = RequestMethod.GET)
+	String range(){
+		Range<Integer> range1 = Range.closed(3, 8);
+        System.out.println(range1);
+        
+        Range<Integer> range2 = Range.openClosed(3, 8);
+        System.out.println(range2);
+
+        Range<Integer> range3 = Range.closedOpen(3, 8);
+        System.out.println(range3);
+        
+        return range1.toString()+range2.toString()+range3.toString();
 	}
 
 	
@@ -177,12 +199,23 @@ public class WebController {
     }
 	
 	/**
+	 * Connor's Method
 	 * Method that print a simple math equation
 	 */
 	@RequestMapping(value = "/cs480/math", method = RequestMethod.GET)
 	String simpleMath() 
 	{
 		return "1+1=2";
+	}
+
+	/**
+	 * Connor's Method
+	 * Capitalizes a string
+	 */
+	@RequestMapping(value = "/cs480/Rain", method = RequestMethod.GET)
+	String caps()
+	{
+		return capitalise("rain");
 	}
 
 	/**
