@@ -10,8 +10,11 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
+
 import org.apache.commons.math3.stat.descriptive.DescriptiveStatistics;
 import org.apache.commons.math3.stat.inference.TestUtils;
+
+import org.apache.commons.io.IOCase;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -72,7 +75,7 @@ public class WebController {
 	}
 
 	
-	// Randys Method
+	// Randy's Method
 	@RequestMapping( value = "/cs480/GitGud", method = RequestMethod.GET)
 	String gitGud(){
 		
@@ -92,6 +95,27 @@ public class WebController {
 				"Step 14 : Reach another plane of existance\r\n" + 
 				"Step 15 : You finally gut gud";
 	}
+	
+	
+	@RequestMapping(value="/cs480/string_compare", method = RequestMethod.GET)
+	String compare()
+	{
+		String sentence1 = "Abandon All Hope Yee Who Enter Here";
+		String sentence2 = "abandon all hope yee who enter here";	
+;		
+		return 	"This page will compare the case sensitivity of the following two sentences" +
+				"<br>" + sentence1 +
+			   	"<br>" + sentence2 +
+				"<br>" +
+			  	"<br>Are the sentences equal with regard to Case sensitivity:  " + IOCase.SENSITIVE.checkEquals(sentence1, sentence2) +
+			  	"<br>Are the sentences equal with regard to Case insensitivity: " + IOCase.INSENSITIVE.checkEquals(sentence1, sentence2);
+
+		
+	}
+		
+		
+	
+	
 
 	/**
 	 * Method that prints a string
