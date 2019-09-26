@@ -71,6 +71,8 @@ public class WebController {
 		return "HI";
 	}
 
+	
+	// Randys Method
 	@RequestMapping( value = "/cs480/GitGud", method = RequestMethod.GET)
 	String gitGud(){
 		
