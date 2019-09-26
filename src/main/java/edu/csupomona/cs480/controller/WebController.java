@@ -212,9 +212,10 @@ public class WebController {
 	 * Connor's Method
 	 * Capitalizes a string
 	 */
-	String caps(String word)
+	@RequestMapping(value = "/cs480/Rain", method = RequestMethod.GET)
+	String caps()
 	{
-		return capitalise(word);
+		return capitalise("rain");
 	}
 
 	/**
