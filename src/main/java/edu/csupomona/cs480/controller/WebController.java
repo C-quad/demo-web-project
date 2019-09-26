@@ -16,6 +16,8 @@ import org.apache.commons.math3.stat.inference.TestUtils;
 
 import org.apache.commons.io.IOCase;
 
+import org.codehaus.plexus.util;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -197,12 +199,22 @@ public class WebController {
     }
 	
 	/**
+	 * Connor's Method
 	 * Method that print a simple math equation
 	 */
 	@RequestMapping(value = "/cs480/math", method = RequestMethod.GET)
 	String simpleMath() 
 	{
 		return "1+1=2";
+	}
+
+	/**
+	 * Connor's Method
+	 * Capitalizes a string
+	 */
+	String caps(String word)
+	{
+		return capitalise(word);
 	}
 
 	/**
