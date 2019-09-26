@@ -76,7 +76,7 @@ public class WebController {
 
 	
 	// Randy's Method
-	@RequestMapping( value = "/cs480/GitGud", method = RequestMethod.GET)
+	@RequestMapping( value = "/cs4800/GitGud", method = RequestMethod.GET)
 	String gitGud(){
 		
 		return  "Step 1 : Start game\r\n" + 
@@ -97,7 +97,7 @@ public class WebController {
 	}
 	
 	
-	@RequestMapping(value="/cs480/string_compare", method = RequestMethod.GET)
+	@RequestMapping(value="/cs4800/string_compare", method = RequestMethod.GET)
 	String compare()
 	{
 		String sentence1 = "Abandon All Hope Yee Who Enter Here";
